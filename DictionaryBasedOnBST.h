@@ -18,6 +18,8 @@ typedef node_t *tree; // the root of the tree
 
 tree insert(tree T, dict_t *data);
 tree insert_numof_changes(tree T, dict_t *data,int *numOfChanges);
+dict_t* tree_search(node_t *x, char *k);
+node_t* iterative_tree_search(node_t *x, char *k);
 
 // test functions
 
