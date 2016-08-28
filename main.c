@@ -11,16 +11,18 @@
 #include <string.h>
 #include "DictionaryBasedOnBST.h"
 #define NUMOFFIELDS 2
+#define TOTALBUFFERSIZE 1530
+
 //void getFields(char *field1, char *field2, char *fileName, size_t bufsize, char *sep);
 int main(int argc, char *argv[]){
     FILE *myFile;
     
     tree newTree;
     
-    myFile = fopen("yelp_academic_dataset_user.csv","r");//r: opens for reading
+    myFile = fopen("test2.csv","r");//r: opens for reading
     //myFile = fopen("yelp_academic_dataset_business_alternative.csv","r");
     // read file into array
-    size_t bufsize = 1529;
+    size_t bufsize = TOTALBUFFERSIZE;
     //int numberArray[100000];
     //int i;
     char *buffer;
@@ -61,13 +63,22 @@ int main(int argc, char *argv[]){
         printf("num of compares = %d\n",*numOfChanges);
         characters = getline(&buffer,&bufsize,myFile);
     }
-    inOrderTreeWalk(newTree);
+    
+    
+    
+    //inOrderTreeWalk(newTree);
     /*for(i = 0; i < 100000; i ++){
      fscanf(myFile,"%d",&numberArray[i]);
      }
      for(i = 0; i < 100000; i ++){
      printf("Number is %d\n\n", numberArray[i]);
      }*/
+    dict_t *result = tree_search(newTree, "1st Care Family");
+    if(result == NULL){
+        printf("1st Care Family Medicine -> NOT FOUND\n");
+    } else {
+        printf("1st Care Family Medicine -> %s\n",result->value);
+    }
     fclose(myFile);
     
     return 0;
