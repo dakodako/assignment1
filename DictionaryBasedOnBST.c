@@ -1,38 +1,39 @@
 
 #include "DictionaryBasedOnBST.h"
+//#include "List.h"
 #include <string.h>
 tree insert(tree T, dict_t *data){
-    node_t *y = NULL;
-    node_t *x = T;
+	node_t *y = NULL;
+	node_t *x = T;
     /*for testing*/
     if(x == NULL){
         printf("tree is empty\n");
     }
-    //int cmp = strcmp(data -> key,x -> data ->key);//comparing keys
-    while(x != NULL){
-        y = x;
+	//int cmp = strcmp(data -> key,x -> data ->key);//comparing keys
+	while(x != NULL){
+		y = x;
        // printf("add node\n");
-        if(strcmp(data -> key,x -> data ->key) <= 0){
-            x = x -> left;
-        } else {
-            x = x -> right;
-        }
-    }
-    node_t *newNode = (node_t*)malloc(sizeof(node_t));
-    newNode -> parent = y;
-    newNode -> right = NULL;
-    newNode -> left = NULL;
-    newNode -> data = data;
-    if(y == NULL){
-        T = newNode;
-    } else if (strcmp(newNode->data->key,y->data->key) <= 0){
+		if(strcmp(data -> key,x -> data ->key) <= 0){
+			x = x -> left;
+		} else {
+			x = x -> right;
+		}
+	}
+	node_t *newNode = (node_t*)malloc(sizeof(node_t));
+	newNode -> parent = y;
+	newNode -> right = NULL;
+	newNode -> left = NULL;
+	newNode -> data = data;
+	if(y == NULL){
+		T = newNode;
+	} else if (strcmp(newNode->data->key,y->data->key) <= 0){
        
-        y-> left = newNode;
-    } else {
+		y-> left = newNode;
+	} else {
        
-        y-> right = newNode;
-    }
-    return T;
+		y-> right = newNode;
+	}
+	return T;
 }
 tree insert_numof_changes(tree T, dict_t *data, int *numOfChanges){
     *numOfChanges = 0;
@@ -100,5 +101,56 @@ node_t* iterative_tree_search(node_t*x, char *k){
         }
     }
     return x;
+}
+
+/*list_t* tree_search_locate_duplicate(node_t *x, char *k){
+    list_t *newList = (list_t*)malloc(sizeof(list_t));
+    newList-> head = NULL;
+    //newList -> head -> prev = NULL;
+    //newList -> head -> next = NULL;
+    while(x!= NULL){
+        if(strcmp(k, x->data->key) <= 0){
+            if(strcmp(k, x->data->key) == 0){
+                printf("found one dupicate\n");
+                dict_t *newEntry = (dict_t*)malloc(sizeof(dict_t));
+                newEntry -> key = (char*)malloc((strlen(x->data->key)+1)*sizeof(char));
+                newEntry -> value = (char*)malloc((strlen(x->data->value)+1)*sizeof(char));
+                strcpy(newEntry->key, k);
+                strcpy(newEntry->value, x->data->value);
+               // printf("%s\n",newEntry->key);
+                //printf("%s\n",newEntry->value);
+                list_insert(newList, newEntry);
+            }
+            x = x -> left;
+        } else {
+            x = x -> right;
+        }
+    }
+    return  newList;
+}*/
+list tree_search_locate_duplicate(node_t *x, char *k){
+    list newList = (list_node_t*)malloc(sizeof(list_node_t));
+    newList = NULL;
+    //newList -> head -> prev = NULL;
+    //newList -> head -> next = NULL;
+    while(x!= NULL){
+        if(strcmp(k, x->data->key) <= 0){
+            if(strcmp(k, x->data->key) == 0){
+                printf("found one dupicate\n");
+                dict_t *newEntry = (dict_t*)malloc(sizeof(dict_t));
+                newEntry -> key = (char*)malloc((strlen(x->data->key)+1)*sizeof(char));
+                newEntry -> value = (char*)malloc((strlen(x->data->value)+1)*sizeof(char));
+                strcpy(newEntry->key, k);
+                strcpy(newEntry->value, x->data->value);
+                // printf("%s\n",newEntry->key);
+                //printf("%s\n",newEntry->value);
+                newList = list_insert(newList, newEntry);
+            }
+            x = x -> left;
+        } else {
+            x = x -> right;
+        }
+    }
+    return  newList;
 }
 
