@@ -19,3 +19,20 @@ char* char_malloc_with_error_handling(size_t s){
     
     return newChar;
 }
+
+void* general_malloc_with_error_handling(size_t s){
+    void* newSpace = malloc(s);
+    if(newSpace == NULL){
+        perror("error, malloc failed\n");
+        exit(1);
+    }
+    return newSpace;
+}
+FILE *fopen_with_error_handling(const char* filename, const char* mode){
+    FILE *myFile = fopen(filename, mode);
+    if(myFile == NULL){
+        perror("the file could not be opened\n");
+        exit(1);
+    }
+    return myFile;
+}
