@@ -12,5 +12,7 @@
 #include <stdio.h>
 
 char* char_malloc_with_error_handling(size_t s);
+void* general_malloc_with_error_handling(size_t s);
+FILE *fopen_with_error_handling(const char* filename, const char* mode);
 
 #endif /* general_h */
