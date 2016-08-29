@@ -10,47 +10,51 @@
 #include <stdlib.h>
 #include <string.h>
 #include "DictionaryBasedOnBST.h"
+#include "general.h"
+#define READING_MODE "r"
+#define WRITING_MODE "w"
+
+
 #define NUMOFFIELDS 2
 #define TOTALBUFFERSIZE 1530
+#define TOKENIZER ","
 
-//void getFields(char *field1, char *field2, char *fileName, size_t bufsize, char *sep);
 int main(int argc, char *argv[]){
     FILE *myFile;
     
     tree newTree;
     
-    myFile = fopen("test2.csv","r");//r: opens for reading
-    //myFile = fopen("yelp_academic_dataset_business_alternative.csv","r");
+    myFile = fopen_with_error_handling("test2.csv", READING_MODE);
     // read file into array
     size_t bufsize = TOTALBUFFERSIZE;
-    //int numberArray[100000];
-    //int i;
     char *buffer;
     size_t characters;
-    char *sep = ",";
-    
-    buffer = (char*)malloc(bufsize*sizeof(char));
-    int *numOfChanges = (int*)malloc(sizeof(int));
-    if(buffer == NULL){
+    char *sep = TOKENIZER;
+    buffer = (char*)general_malloc_with_error_handling(bufsize*sizeof(char));
+    int *numOfChanges = (int*)general_malloc_with_error_handling(sizeof(int));
+    /* previously for error handling
+     if(buffer == NULL){
         exit(1);
-    }
+    }*/
     characters = getline(&buffer,&bufsize,myFile);
     printf("%zu characters were read.\n",characters);
     while(characters != -1){
-        dict_t *newEntry = (dict_t*)malloc(sizeof(dict_t));
+        dict_t *newEntry = (dict_t*)general_malloc_with_error_handling(sizeof(dict_t));
         newEntry -> key = NULL;
         newEntry -> value = NULL;
+        /* k is a counter, when k == 0, the reading is <name> field, when k == 1, the reading is <data> field*/
         int k = 0;
-        //char *field = buffer;
-        //printf("buffer = %s\n", buffer);
         char *word;
         word = strtok(buffer,sep);
         while( word != NULL){
             if(k == 0){
-                newEntry -> key = (char*)malloc((strlen(word) + 1)*sizeof(char));
+                //newEntry -> key = char_malloc_with_error_handling(strlen(word)+1);
+                newEntry -> key = (char*)general_malloc_with_error_handling((strlen(word) + 1)*sizeof(char));
                 strcpy(newEntry -> key, word);
             } else {
-                newEntry -> value = (char*)malloc((strlen(word) + 1)*sizeof(char));
+                //newEntry -> value = (char*)malloc((strlen(word) + 1)*sizeof(char));
+                //newEntry -> value = char_malloc_with_error_handling(strlen(word) + 1);
+                newEntry -> value = (char*)general_malloc_with_error_handling((strlen(word) +1)*sizeof(char));
                 strcpy(newEntry->value, word);
             }
             //printf("token = %s\n", word);
@@ -66,19 +70,28 @@ int main(int argc, char *argv[]){
     
     
     
-    //inOrderTreeWalk(newTree);
+   // inOrderTreeWalk(newTree);
     /*for(i = 0; i < 100000; i ++){
      fscanf(myFile,"%d",&numberArray[i]);
      }
      for(i = 0; i < 100000; i ++){
      printf("Number is %d\n\n", numberArray[i]);
      }*/
-    dict_t *result = tree_search(newTree, "1st Care Family");
-    if(result == NULL){
-        printf("1st Care Family Medicine -> NOT FOUND\n");
+    //dict_t *result = tree_search(newTree, "1900 Mexican Grill");
+   // node_t *result_node = iterative_tree_search(newTree, "1900 Mexican Grill");
+    list result_list = tree_search_locate_duplicate(newTree, "Alvin");
+    //printf("%s\n",result_list->key->key);
+    //printf("%s\n",result_list->key->value);
+    //printf("%s\n",result_list->next->key->key);
+    //printf("%s\n",result_list->next->key->value);
+    print_list(result_list);
+    /*printf("\n");
+    if(result_node == NULL){
+        printf("1900 Mexican Grill -> NOT FOUND\n");
     } else {
-        printf("1st Care Family Medicine -> %s\n",result->value);
-    }
+        printf("1900 Mexican Grill -> %s\n",result_node ->data->value);
+    }*/
+    
     fclose(myFile);
     
     return 0;
