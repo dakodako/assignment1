@@ -22,6 +22,7 @@ tree insert_numof_changes(tree T, dict_t *data,int *numOfChanges);
 dict_t* tree_search(node_t *x, char *k);
 node_t* iterative_tree_search(node_t *x, char *k);
 list tree_search_locate_duplicate(node_t*, char *k);
+list tree_search_locate_duplicate_return_num_of_compares(node_t*, char *k, int* numofcompares);
 // test functions
 
 void inOrderTreeWalk(tree T);
