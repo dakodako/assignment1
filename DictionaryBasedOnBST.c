@@ -6,9 +6,9 @@ tree insert(tree T, dict_t *data){
 	node_t *y = NULL;
 	node_t *x = T;
     /*for testing*/
-    if(x == NULL){
+   /* if(x == NULL){
         printf("tree is empty\n");
-    }
+    }*/
 	//int cmp = strcmp(data -> key,x -> data ->key);//comparing keys
 	while(x != NULL){
 		y = x;
@@ -40,9 +40,9 @@ tree insert_numof_changes(tree T, dict_t *data, int *numOfChanges){
     node_t *y = NULL;
     node_t *x = T;
     /*for testing*/
-    if(x == NULL){
-        printf("tree is empty\n");
-    }
+    /*if(x == NULL){
+        //printf("tree is empty\n");
+    }*/
     //int cmp = strcmp(data -> key,x -> data ->key);//comparing keys
     while(x != NULL){
         *numOfChanges = *numOfChanges + 1;
@@ -129,14 +129,41 @@ node_t* iterative_tree_search(node_t*x, char *k){
     return  newList;
 }*/
 list tree_search_locate_duplicate(node_t *x, char *k){
+   // printf("starts searching");
     list newList = (list_node_t*)malloc(sizeof(list_node_t));
     newList = NULL;
-    //newList -> head -> prev = NULL;
-    //newList -> head -> next = NULL;
     while(x!= NULL){
+        
         if(strcmp(k, x->data->key) <= 0){
             if(strcmp(k, x->data->key) == 0){
                 printf("found one dupicate\n");
+                dict_t *newEntry = (dict_t*)malloc(sizeof(dict_t));
+                newEntry -> key = (char*)malloc((strlen(x->data->key)+1)*sizeof(char));
+                newEntry -> value = (char*)malloc((strlen(x->data->value)+1)*sizeof(char));
+                strcpy(newEntry->key, k);
+                strcpy(newEntry->value, x->data->value);
+                // printf("%s\n",newEntry->key);
+                //printf("%s\n",newEntry->value);
+                newList = list_insert(newList, newEntry);
+            }
+            x = x -> left;
+        } else {
+            x = x -> right;
+        }
+    }
+    return  newList;
+}
+
+list tree_search_locate_duplicate_return_num_of_compares(node_t* x, char *k, int* numofcompares){
+    *numofcompares = 0;
+    //printf("starts searching");
+    list newList = (list_node_t*)malloc(sizeof(list_node_t));
+    newList = NULL;
+    while(x!= NULL){
+        *numofcompares = *numofcompares + 1;
+        if(strcmp(k, x->data->key) <= 0){
+            if(strcmp(k, x->data->key) == 0){
+                //printf("found one dupicate\n");
                 dict_t *newEntry = (dict_t*)malloc(sizeof(dict_t));
                 newEntry -> key = (char*)malloc((strlen(x->data->key)+1)*sizeof(char));
                 newEntry -> value = (char*)malloc((strlen(x->data->value)+1)*sizeof(char));
