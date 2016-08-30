@@ -24,4 +24,6 @@ typedef list_node_t *list;
 
 list list_insert(list L, dict_t* value);
 void print_list(list L);
+void fprint_list(list L,FILE *myFile, char* search);
+void deleteAllNodes(list L);
 #endif /* List_h */
