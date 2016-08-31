@@ -114,4 +114,18 @@ node_stage2_t *search(node_stage2_t *T, char *k){
     }
     return T;
 }
+node_stage2_t *search_return_num_of_cmps(tree_stage2 T, char *key,int* numOfCmps){
+    *numOfCmps = 0;
+    while(T != NULL){
+        *numOfCmps = *numOfCmps + 1;
+        if(strcmp(key, T->data->key->key) == 0){
+            return T;
+        } else if(strcmp(key, T->data->key->key) < 0){
+            T = T -> left;
+        } else {
+            T = T -> right;
+        }
+    }
+    return T;
+}
 

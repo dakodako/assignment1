@@ -27,4 +27,5 @@ typedef node_stage2_t* tree_stage2;
 tree_stage2 insert_stage2(tree_stage2 T, dict_t* data);
 tree_stage2 insert_stage2_num_of_cmps(tree_stage2 T, dict_t* data, int* numOfCompare);
 node_stage2_t *search(tree_stage2 T, char *key);
+node_stage2_t *search_return_num_of_cmps(tree_stage2 T, char *key,int*numOfCmps);
 #endif /* DictionaryBasedOnBSTStage2_h */
