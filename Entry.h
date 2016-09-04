@@ -6,3 +6,7 @@ struct dict
 	char *value; /* in yelp database, the value will be <data>*/
 };
 typedef struct dict dict_t;
+
+/* functions definition*/
+
+

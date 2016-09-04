@@ -2,6 +2,7 @@
 #include "DictionaryBasedOnBST.h"
 //#include "List.h"
 #include <string.h>
+
 tree insert(tree T, dict_t *data){
 	node_t *y = NULL;
 	node_t *x = T;
@@ -181,3 +182,8 @@ list tree_search_locate_duplicate_return_num_of_compares(node_t* x, char *k, int
     return  newList;
 }
 
+
+tree makeDict_stage1(){
+    tree newTree = NULL;
+    return newTree;
+}   

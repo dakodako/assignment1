@@ -24,84 +24,58 @@
 #define MAXNAME 61
 //void getFields(char *field1, char *field2, char *fileName, size_t bufsize, char *sep);
 int main(int argc, char *argv[]){
-    //FILE *myFile = fopen_with_error_handling(argv[3], READING_MODE);
-    FILE *myFile2 = fopen_with_error_handling(argv[1], READING_MODE);
-    FILE *myFile3 = fopen_with_error_handling(argv[2], WRITING_MODE);
+    if(argc != 3){
+        perror("instructions:\n");
+        exit(1);
+    }
+    FILE *dataFile = fopen_with_error_handling(argv[1], READING_MODE);
+    FILE *outputFile = fopen_with_error_handling(argv[2], WRITING_MODE);
     
-    tree newTree;
-   // tree_stage2 newTree_stage2;
-    // read file into array
+    tree newTree = makeDict_stage1();
     size_t bufsize = TOTALBUFFERSIZE;
-    //int numberArray[100000];
-    //int i;
-    char *buffer;
     size_t characters;
     char *sep = TOKENIZER;
-
     char *searchKey = (char*)general_malloc_with_error_handling(MAXNAME*sizeof(char));
-    //char searchKey[61];
-    
-    //buffer = (char*)malloc(bufsize*sizeof(char));
-    //buffer = char_malloc_with_error_handling(bufsize);
-    buffer = (char*)general_malloc_with_error_handling(bufsize*sizeof(char));
-    //int *numOfChanges = (int*)malloc(sizeof(int));
-    int *numOfChanges = (int*)general_malloc_with_error_handling(sizeof(int));
-    /* previously for error handling
-     if(buffer == NULL){
-        exit(1);
-    }*/
-    //characters = getline(&buffer,&bufsize,myFile);
-    characters = getline(&buffer, &bufsize,myFile2);
-    //printf("%zu characters were read.\n",characters);
+    char *buffer = (char*)general_malloc_with_error_handling(bufsize*sizeof(char));
+    int *numOfCmps = (int*)general_malloc_with_error_handling(sizeof(int));
+    characters = getline(&buffer, &bufsize,dataFile);
     while(characters != -1){
         dict_t *newEntry = (dict_t*)general_malloc_with_error_handling(sizeof(dict_t));
-        //dict_t *newEntry = (dict_t*)malloc(sizeof(dict_t));
         newEntry -> key = NULL;
         newEntry -> value = NULL;
-        int k = 0;
-        //char *field = buffer;
-        //printf("buffer = %s\n", buffer);
-        char *word;
-        word = strtok(buffer,sep);
+        int k = 0; // k is a counter: 
+        char *word = strtok(buffer,sep);
         while( word != NULL){
-            if(k == 0){
-                //newEntry -> key = (char*)malloc((strlen(word) + 1)*sizeof(char));
-                //newEntry -> key = char_malloc_with_error_handling(strlen(word)+1);
+            if(k == 0){ // when k = 0, the input field is <name>;
                 newEntry -> key = (char*) general_malloc_with_error_handling((strlen(word) + 1)*sizeof(char));
                 strcpy(newEntry -> key, word);
-            } else {
-                //newEntry -> value = (char*)malloc((strlen(word) + 1)*sizeof(char));
-                //newEntry -> value = char_malloc_with_error_handling(strlen(word) + 1);
+            } else { // when k = 1, the input field is <data>
                 newEntry -> value = (char*) general_malloc_with_error_handling((strlen(word) + 1)*sizeof(char));
                 strcpy(newEntry->value, word);
             }
-            //printf("token = %s\n", word);
             k = k + 1;
             word = strtok(NULL,sep);
         }
-        //int numOfChanges = insert_numof_changes(newTree, newEntry);
-        //newTree = insert(newTree, newEntry);
-        newTree = insert_numof_changes(newTree, newEntry, numOfChanges);
-       // newTree_stage2 = insert_stage2(newTree_stage2, newEntry);
+        newTree = insert(newTree, newEntry);
+        //newTree = insert_numof_changes(newTree, newEntry, numOfCmps);
+        //printf("num of compares = %d\n",*numOfCmps);
         
-        printf("num of compares = %d\n",*numOfChanges);
-        //characters = getline(&buffer,&bufsize,myFile);
-
-        characters = getline(&buffer,&bufsize,myFile2);
+        // getting data from the next line
+        characters = getline(&buffer,&bufsize,dataFile);
         
     }
-    //free(numOfChanges);
+    free(numOfCmps);
     // search keys read from an input file in stdin
     int *numOfCompare = (int*) malloc(sizeof(int));
-    while(fgets(searchKey,61,stdin)){
+    while(fgets(searchKey,MAXNAME,stdin)){
         if(searchKey[strlen(searchKey)-1] == '\n'){
             searchKey[strlen(searchKey)-1] = '\0';
         }
         //printf("%s\n",searchKey );
         list result_list = tree_search_locate_duplicate_return_num_of_compares(newTree, searchKey, numOfCompare);
         printf("%s - > %d\n",searchKey,*numOfCompare);
-        fprint_list(result_list,myFile3,searchKey);
-        
+        fprint_list(result_list,outputFile,searchKey);
+        deleteAllNodes(result_list);
     }
    /*bufsize = NAMESIZE;
     int *numOfCompare = (int*) malloc(sizeof(int));
@@ -127,8 +101,8 @@ int main(int argc, char *argv[]){
     }*/
    
     
-    fclose(myFile2);
-    fclose(myFile3);
+    fclose(dataFile);
+    fclose(outputFile);
     
     return 0;
     
