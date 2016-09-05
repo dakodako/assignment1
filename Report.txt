@@ -202,3 +202,313 @@ Paola - > 64
 Tina - > 889
 Michele - > 578
 Kaytee - > 17
+
+number of comparisons using sorted datafile (business users):
+Chip Nutty Cookies - > 11446
+Lotus Boutique - > 30251
+John Schroeder Plumbing - > 25958
+The Palette - > 51451
+Jasmine Thai Gourmet - > 25485
+Marion Diehl Recreation Center - > 31575
+Desert Auto Glass - > 14750
+Kusina Ni Lorraine Express - > 27521
+Tully s Coffee - > 53603
+Dawg Dayz Grooming Care - > 14359
+Taco Bell - > 49106
+Long John Silver s - > 30108
+Jeeparts Back Country Products - > 25580
+US Post Office - > 54026
+Design Lab by DDG - > 15028
+Chiropractic Healing Center - > 11464
+Old Montreal - > 35970
+Dynamic Wellness Now - > 16290
+Internal Medicine of Arizona PC - > 24806
+Hotel Chocolat Cafe - > 23865
+Jeff De Bruges - > 25586
+More For Less - > 33677
+Happy Jack s - > 22484
+Jolly Beans Cafe Inspirada - > 26037
+Desert Rose Express - > 14925
+Molly Maid - > 33425
+First Baptist Church of the Lake - > 18795
+C J Quality Auto Glass - > 8669
+Apple Inn - > 3289
+McDonald s - > 32525
+Dogs By Cindy - > 15629
+Sammy s Woodfired Pizza And Grill - > 43742
+Little Scholar s Academy - > 29899
+First Food Bar - > 18823
+Rib N Reef Steakhouse Cigare Lounge - > 42080
+Mecklenburg County Aquatic Center - > 32335
+El Pollo Loco - > 17008
+Thai Orchid Restaurant - > 49763
+Yum Yum BBQ - > 57319
+Berge Volkswagen - > 6139
+Ultra Cleaners - > 54043
+Dairy Queen - > 14148
+Best Western Plus Charlotte Matthews Hotel - > 6270
+Cellini s - > 10366
+Hody Bar Grill - > 23363
+Advanced Aesthetic Associates - > 1545
+Aveda Enviromental Lifestyle Store - > 4638
+Lily s Cafe - > 29710
+Monarch Roofing - > 33466
+Your Inner Vagabond - > 57282
+Samac Hair Nails - > 43717
+Artful Escapes - > 4076
+Blair Ballin Realtor - > 6935
+Align Chiropractic - > 2083
+The Cheesecake Factory - > 50268
+Brett Noorda DMD FAGD - > 7976
+KFC - > 26521
+Wendy s - > 56158
+Greenway Airpark Family Dentistry - > 21737
+Tides Oyster Bar - > 52479
+White Fox Fitness - > 56248
+Village Inn Pizza - > 55254
+Potbelly Sandwich Shop - > 39597
+Hands On Massage Therapy - > 22397
+Amigos Tacos - > 2773
+Healthy Skin AZ - > 22856
+The UPS Store - > 52206
+Go Relax Wellness Spa - > 20948
+Ridenow Powersports On Rancho - > 42158
+Beyond Baggage - > 6364
+Qualtire Plumbing Construction - > 40399
+Lines Sunscreens - > 29765
+Squaw Peak Animal Hospital - > 46934
+Denny s - > 14747
+Salim s Middle Eastern Food Store - > 43495
+Chinese Health Center - > 11431
+Murphy Bridle Path - > 34082
+Hertz Rent A Car - > 23155
+Mayo Clinic Hospital Cafeteria - > 32117
+Starbucks Coffee - > 47196
+Today Nails Tan - > 52745
+Culvers - > 13682
+ComForCare Senior Services - > 12480
+Dick s Speed O Tach - > 15226
+Sapori Di Napoli - > 43936
+Costa Coffee - > 12977
+1 Sushi - > 28
+Fiesta Cancun - > 18628
+Bonura and Sattler Auto Body Shop - > 7495
+Men s Wearhouse and Tux - > 32478
+Mesa Comics - > 32573
+William Tikey DC - > 56444
+Recovery Chiropractic - > 41116
+OZ Bar - > 35708
+Orange Burgers Brunch - > 36315
+Wendy s - > 56158
+Sammy s Woodfired Pizza and Grill - > 43747
+Ghost Armor - > 20614
+The Home Depot - > 50977
+Sugar Bee s Bakery - > 47798
+
+number of comparisons using shuffled datafile:
+
+Chip Nutty Cookies - > 33
+Lotus Boutique - > 25
+John Schroeder Plumbing - > 23
+The Palette - > 20
+Jasmine Thai Gourmet - > 28
+Marion Diehl Recreation Center - > 19
+Desert Auto Glass - > 21
+Kusina Ni Lorraine Express - > 22
+Tully s Coffee - > 24
+Dawg Dayz Grooming Care - > 23
+Taco Bell - > 195
+Long John Silver s - > 36
+Jeeparts Back Country Products - > 25
+US Post Office - > 113
+Design Lab by DDG - > 19
+Chiropractic Healing Center - > 21
+Old Montreal - > 24
+Dynamic Wellness Now - > 17
+Internal Medicine of Arizona PC - > 26
+Hotel Chocolat Cafe - > 18
+Jeff De Bruges - > 25
+More For Less - > 26
+Happy Jack s - > 22
+Jolly Beans Cafe Inspirada - > 21
+Desert Rose Express - > 20
+Molly Maid - > 29
+First Baptist Church of the Lake - > 14
+C J Quality Auto Glass - > 18
+Apple Inn - > 20
+McDonald s - > 362
+Dogs By Cindy - > 24
+Sammy s Woodfired Pizza And Grill - > 21
+Little Scholar s Academy - > 31
+First Food Bar - > 21
+Rib N Reef Steakhouse Cigare Lounge - > 19
+Mecklenburg County Aquatic Center - > 22
+El Pollo Loco - > 61
+Thai Orchid Restaurant - > 17
+Yum Yum BBQ - > 21
+Berge Volkswagen - > 17
+Ultra Cleaners - > 32
+Dairy Queen - > 96
+Best Western Plus Charlotte Matthews Hotel - > 14
+Cellini s - > 19
+Hody Bar Grill - > 20
+Advanced Aesthetic Associates - > 21
+Aveda Enviromental Lifestyle Store - > 23
+Lily s Cafe - > 23
+Monarch Roofing - > 23
+Your Inner Vagabond - > 23
+Samac Hair Nails - > 23
+Artful Escapes - > 24
+Blair Ballin Realtor - > 21
+Align Chiropractic - > 21
+The Cheesecake Factory - > 27
+Brett Noorda DMD FAGD - > 20
+KFC - > 111
+Wendy s - > 157
+Greenway Airpark Family Dentistry - > 23
+Tides Oyster Bar - > 31
+White Fox Fitness - > 20
+Village Inn Pizza - > 20
+Potbelly Sandwich Shop - > 35
+Hands On Massage Therapy - > 18
+Amigos Tacos - > 25
+Healthy Skin AZ - > 24
+The UPS Store - > 157
+Go Relax Wellness Spa - > 27
+Ridenow Powersports On Rancho - > 21
+Beyond Baggage - > 16
+Qualtire Plumbing Construction - > 18
+Lines Sunscreens - > 27
+Squaw Peak Animal Hospital - > 18
+Denny s - > 98
+Salim s Middle Eastern Food Store - > 20
+Chinese Health Center - > 23
+Murphy Bridle Path - > 23
+Hertz Rent A Car - > 49
+Mayo Clinic Hospital Cafeteria - > 26
+Starbucks Coffee - > 19
+Today Nails Tan - > 26
+Culvers - > 20
+ComForCare Senior Services - > 16
+Dick s Speed O Tach - > 25
+Sapori Di Napoli - > 23
+Costa Coffee - > 31
+1 Sushi - > 12
+Fiesta Cancun - > 25
+Bonura and Sattler Auto Body Shop - > 24
+Men s Wearhouse and Tux - > 25
+Mesa Comics - > 26
+William Tikey DC - > 19
+Recovery Chiropractic - > 20
+OZ Bar - > 22
+Orange Burgers Brunch - > 17
+Wendy s - > 157
+Sammy s Woodfired Pizza and Grill - > 23
+Ghost Armor - > 25
+The Home Depot - > 78
+Sugar Bee s Bakery - > 18
+
+stage 2
+
+sorted
+
+Jennie - > 19259
+Derek - > 10468
+Nicolette - > 31844
+J - > 17692
+Nguyen - > 31725
+Dionne - > 10952
+Joshua - > 20645
+Eaamon - > 11786
+Mark - > 27806
+Lul  - > 26274
+Stephen - > 41160
+K  - > 21107
+Cathy - > 6705
+Chad - > 6948
+Amy - > 1794
+Melissa - > 28823
+Eb - > 11831
+Michelle - > 29251
+Jacques - > 18063
+Chloe - > 7763
+Jerome - > 19421
+Dessislava - > 10573
+Ari - > 2809
+Chris - > 7819
+Sean - > 38367
+Joyce - > 20728
+Leah - > 24856
+Mike - > 29401
+Cesar - > 6910
+Miranda - > 29651
+Jackie - > 17999
+Beauty - > 4279
+Dustin - > 11628
+Kerri Leigh - > 22669
+Katie - > 22011
+Tanya - > 42440
+Don - > 11148
+Grace - > 15228
+Katy - > 22069
+Odyne - > 32635
+Lou - > 26047
+Iveth - > 17627
+Michael - > 29178
+Stephanie - > 41141
+Nicole - > 31831
+Colton - > 8450
+Cynthia - > 9039
+Chris - > 7819
+Sylvia - > 41886
+Cassandra - > 6627
+Michael - > 29178
+Jeremy - > 19365
+Marc - > 27412
+Michelle - > 29251
+Victoria - > 45266
+Emily - > 12482
+Krystin - > 23701
+Sandra - > 37832
+Nigel - > 31872
+Denise - > 10404
+Anthony - > 2495
+James - > 18304
+Angella - > 2144
+Allison - > 1369
+Lily - > 25463
+Carrie - > 6568
+Michael - > 29178
+Marissa - > 27757
+Taylor - > 42655
+Susan - > 41660
+Robert - > 36422
+Jenn - > 19217
+David - > 9825
+David - > 9825
+Scott - > 38312
+Jason - > 18682
+Biren - > 4850
+Alex - > 1140
+Donna - > 11213
+Debbi - > 10094
+Richard - > 36119
+Daniel - > 9504
+Neil - > 31529
+Nikki - > 31934
+Kevin - > 22731
+Jeff - > 19059
+Kate - > 21934
+Astro - > 3336
+David - > 9825
+Hj - > 16508
+Amber - > 1614
+Dan - > 9434
+Bill - > 4789
+S - > 37267
+Brenda - > 5411
+Cristina - > 8840
+Paola - > 33293
+Tina - > 43564
+Michele - > 29238
+Kaytee - > 22183
