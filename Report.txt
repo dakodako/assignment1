@@ -512,3 +512,126 @@ Paola - > 33293
 Tina - > 43564
 Michele - > 29238
 Kaytee - > 22183
+
+shuffled:
+
+Jennie - > 11
+Derek - > 12
+Nicolette - > 14
+J - > 5
+Nguyen - > 18
+Dionne - > 24
+Joshua - > 13
+Eaamon - > 22
+Mark - > 10
+Lul  - > 26
+Stephen - > 7
+K  - > 17
+Cathy - > 16
+Chad - > 8
+Amy - > 8
+Melissa - > 8
+Eb - > 23
+Michelle - > 5
+Jacques - > 16
+Chloe - > 14
+Jerome - > 12
+Dessislava - > 20
+Ari - > 16
+Chris - > 11
+Sean - > 13
+Joyce - > 16
+Leah - > 14
+Mike - > 7
+Cesar - > 15
+Miranda - > 11
+Jackie - > 9
+Beauty - > 22
+Dustin - > 10
+Kerri Leigh - > 17
+Katie - > 11
+Tanya - > 12
+Don - > 14
+Grace - > 12
+Katy - > 9
+Odyne - > 32
+Lou - > 22
+Iveth - > 15
+Michael - > 3
+Stephanie - > 6
+Nicole - > 11
+Colton - > 19
+Cynthia - > 13
+Chris - > 11
+Sylvia - > 10
+Cassandra - > 24
+Michael - > 3
+Jeremy - > 2
+Marc - > 15
+Michelle - > 5
+Victoria - > 10
+Emily - > 10
+Krystin - > 18
+Sandra - > 9
+Nigel - > 17
+Denise - > 18
+Anthony - > 13
+James - > 7
+Angella - > 18
+Allison - > 11
+Lily - > 23
+Carrie - > 17
+Michael - > 3
+Marissa - > 15
+Taylor - > 15
+Susan - > 6
+Robert - > 9
+Jenn - > 11
+David - > 9
+David - > 9
+Scott - > 10
+Jason - > 9
+Biren - > 23
+Alex - > 14
+Donna - > 17
+Debbi - > 13
+Richard - > 13
+Daniel - > 12
+Neil - > 14
+Nikki - > 7
+Kevin - > 7
+Jeff - > 10
+Kate - > 10
+Astro - > 20
+David - > 9
+Hj - > 14
+Amber - > 7
+Dan - > 7
+Bill - > 12
+S - > 7
+Brenda - > 17
+Cristina - > 16
+Paola - > 15
+Tina - > 7
+Michele - > 6
+Kaytee - > 13
+
+Introduction: Summary of data structure and inputs
+The abstract data type dictionary was used to store key and value pairs in the database.
+The underlying structure of the dictionaries in both stage 1 and stage 2 are binary search trees (without any balancing operations).
+The difference between stage 1 and stage 2 is in the method of locating the duplicated keys. 
+In stage 1, when doing insertions, if the key is <= (smaller than or equal to) the key of the previous node, a new node will be created at its left and when the key is > (larger), a new node will be inserted to its right. When we search a key in the tree, every time when a duplicated key is encountered, it will be put into a link list and print out the whole list at the end. 
+In stage 2, there are three conditions when doing insertions. Same as in stage 1, when the key is larger than the one of its previous node, the new node will be put to its right, and when the key is smaller, it will be put to the left of its parent node. While when the key equals to the one in the previous node, it will be put into a link list following the the previous node. 
+In each node in the binary search tree, there are a key value which is an key-value pair in the dictionary, a pointer to its left child and a pointer to its right child. In stage 1, the key-value pair is implemented by a data type called "Entry" which means a single entry in the dictionary. It has a field for name and another one for the information about the name. In stage 2, the key-value pair is implemented by link list whose elements consist of "Entry". When there is a duplicated key found when inserting a new node, the new node will directly be put into the link list which belongs to the node which has the same key as that of the new one. It saves a great by number of comparisons in insertion operation and search operation if there are a great number of duplicated keys in the database because when once the key is found, all the duplicated items are available without any further key comparisons.
+
+Because there are two sets of input data files are provided (yelp_academic_dataset_business.csv and yelp_academic_dataset_user.csv), each stage are tested four times using a sorted version and a shuffled version of each data file.
+
+Using UNIX command sort <filename> > <filename>, four different input data files are created: 
+  
+  yelp_academic_dataset_user_sorted.csv (77445 lines, 53.9 MB)
+  yelp_academic_dataset_user_sorted.csv (sorted version of yelp_academic_dataset_user.csv)
+  yelp_academic_dataset_user.csv (552275 lines, 94 MB)
+  yelp_academic_dataset_user_sorted.csv (sorted version of yelp_academic_dataset_user.csv).
+  
+Also, using UNIX command cat filename.csv | awk -F ’;’ ’{print $1}’ and sort commands, two input files which contain search keys are created.
+
