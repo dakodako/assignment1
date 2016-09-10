@@ -9,11 +9,11 @@ In each node in the binary search tree, there are a key value which is an key-va
 
 Because there are two sets of input data files are provided (yelp_academic_dataset_business.csv and yelp_academic_dataset_user.csv), each stage are tested four times using a sorted version and a shuffled version of each data file.
 
-Using UNIX command sort <filename> > <filename>, four different input data files are created: 
+Using UNIX command sort <filename> > <filename>, four different input data files are created: <br>
   
   yelp_academic_dataset_business.csv (77445 lines, 53.9 MB)
   yelp_academic_dataset_business_sorted.csv (sorted version of yelp_academic_dataset_user.csv)
   yelp_academic_dataset_user.csv (552275 lines, 94 MB)
   yelp_academic_dataset_user_sorted.csv (sorted version of yelp_academic_dataset_user.csv).
-  
+</br>
 Also, using UNIX command cat filename.csv | awk -F ’;’ ’{print $1}’ and sort commands, input files which contain search keys are created.
