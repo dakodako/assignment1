@@ -7,13 +7,15 @@ In stage 1, when doing insertions, if the key is <= (smaller than or equal to) t
 In stage 2, there are three conditions when doing insertions. Same as in stage 1, when the key is larger than the one of its previous node, the new node will be put to its right, and when the key is smaller, it will be put to the left of its parent node. While when the key equals to the one in the previous node, it will be put into a link list following the the previous node. 
 In each node in the binary search tree, there are a key value which is an key-value pair in the dictionary, a pointer to its left child and a pointer to its right child. In stage 1, the key-value pair is implemented by a data type called "Entry" which means a single entry in the dictionary. It has a field for name and another one for the information about the name. In stage 2, the key-value pair is implemented by link list whose elements consist of "Entry". When there is a duplicated key found when inserting a new node, the new node will directly be put into the link list which belongs to the node which has the same key as that of the new one. It saves a great by number of comparisons in insertion operation and search operation if there are a great number of duplicated keys in the database because when once the key is found, all the duplicated items are available without any further key comparisons.
 
-Because there are two sets of input data files are provided (yelp_academic_dataset_business.csv and yelp_academic_dataset_user.csv), each stage are tested four times using a sorted version and a shuffled version of each data file.
+9 test data files are created (1000 lines input, 2000 lines input, 5000 lines input, 10000 lines input, 20000 lines input, 50000 lines input, 100000 lines input and 200000 lines input), and each test data file has two versions: a sorted version and a unsorted version (by using UNIX command sort <filename> > <filename> and gshuf <filename> > <filename>)
 
-Using UNIX command sort <filename> > <filename>, four different input data files are created: <br>
-  
-  yelp_academic_dataset_business.csv (77445 lines, 53.9 MB)
-  yelp_academic_dataset_business_sorted.csv (sorted version of yelp_academic_dataset_user.csv)
-  yelp_academic_dataset_user.csv (552275 lines, 94 MB)
-  yelp_academic_dataset_user_sorted.csv (sorted version of yelp_academic_dataset_user.csv).
-</br>
 Also, using UNIX command cat filename.csv | awk -F ’;’ ’{print $1}’ and sort commands, input files which contain search keys are created.
+
+Data
+
+Discussion
+With the sorted input data, both stages have linear performances. With each input data file, stage 2 has a fewer comparisons than stage 1 because stage 2 saves the comparison among duplicated keys. Other than that, there is no big difference in performance among stage 1 and stage 2 when the input data is sorted.
+
+When the input data was in a random order, stage 1 algorithm behaved in an expected way that the height of tree grows in log(n) rate when n is between 100 and 5000. As the number of inputs increases in the input data file (n > 5000), the number of duplicated keys increases as well. Because the duplicated keys are always inserted at the left subtree of their parent nodes, the height of the search tree grows faster than log(n). Therefore, as the number of input lines increase, the running time of the search and insert operation (measured by number of comparisons) grows faster than the theory (log(n)). On the opposite, stage 2 almost has a constant performance when n > 50000. The data structure in stage 2 improves the efficiency of both insertion operation and search operation. It reduces the height of the tree by putting the duplicated keys into a same node. For the same reason that the number of duplicated keys increases, the height of the search tree remains constant. Therefore, the number of comparisons done by the search algorithm in stage 2 remains constant when the number of inputs goes over a certain amount (in this case, this certain level is 50000 lines).
+
+In conclusion, the performance of this unbalanced binary tree is highly dependent on the format of the input data file. The performance is related to the number of duplicated keys, the order of the data inside the file and also the size of the input. 
